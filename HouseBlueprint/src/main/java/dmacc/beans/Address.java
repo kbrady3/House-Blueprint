@@ -1,5 +1,8 @@
 package dmacc.beans;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Address {
 	private int houseNum;
 	private String street;

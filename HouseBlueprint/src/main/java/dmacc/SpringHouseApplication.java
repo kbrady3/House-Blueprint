@@ -32,14 +32,9 @@ public class SpringHouseApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		ApplicationContext appContext = new AnnotationConfigApplicationContext(BeanConfiguration.class);
 		
-		House h = appContext.getBean("House", House.class);
-		h.setType("Two story");
+		//Uses house bean to create new house
+		House h = appContext.getBean("house", House.class);
 		repo.save(h);
-		
-		House d = new House("Ranch", 6, true, 1560);
-		Address a = new Address(2984, "Main Street", "Des Moines", "Iowa", 50312);
-		d.setAddress(a);
-		repo.save(d);
 		
 		((AbstractApplicationContext) appContext).close();
 	}
